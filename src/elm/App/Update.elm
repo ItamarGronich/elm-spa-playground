@@ -4,14 +4,16 @@ import App.Model exposing (..)
 
 
 type Msg
-    = Number
+    = SetActivePage Page
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( 1, Cmd.none )
+    ( initialModel, Cmd.none )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        SetActivePage page ->
+            ( { model | activePage = page }, Cmd.none )
